@@ -7,6 +7,7 @@
 """
 
 import os
+from urllib.parse import quote
 import pandas as pd
 import streamlit as st
 import folium
@@ -61,11 +62,14 @@ def build_map(df: pd.DataFrame) -> folium.Map:
     cluster = MarkerCluster(name="카페").add_to(m)
 
     for row in df.itertuples(index=False):
-        # 마우스 클릭 시 표시할 팝업: 상호명 + 도로명주소
+        # 마우스 클릭 시 표시할 팝업: 상호명 + 도로명주소(클릭 시 네이버 지도 검색 링크)
+        map_url = "https://map.naver.com/p/search/" + quote(str(row.도로명주소))
         popup_html = (
             f"<div style='min-width:180px'>"
             f"<b style='font-size:14px'>{row.상호명}</b><br>"
-            f"<span style='font-size:12px;color:#555'>📍 {row.도로명주소}</span>"
+            f"<a href='{map_url}' target='_blank' rel='noopener noreferrer' "
+            f"style='font-size:12px;color:#1a73e8;text-decoration:underline'>"
+            f"📍 {row.도로명주소}</a>"
             f"</div>"
         )
         folium.Marker(
