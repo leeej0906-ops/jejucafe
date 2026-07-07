@@ -1,0 +1,10 @@
+[theme]
+primaryColor = "#2E8B8B"
+base = "light"
+
+[server]
+# 업로드/데이터 처리 여유
+maxUploadSize = 200
+
+[browser]
+gatherUsageStats = false

@@ -1,0 +1,11 @@
+total rows: 57465, cafe-ish rows: 3020
+
+== 소분류명 value counts (cafe rows) ==
+상권업종소분류명
+카페            2912
+독서실/스터디 카페     108
+
+== 중분류명 value counts (cafe rows) ==
+상권업종중분류명
+비알코올       2912
+도서관·사적지     108
